@@ -25,7 +25,7 @@ const phImg = (key, w, h, alt, extra = '') =>
 
 // logo (config site.logo) o wordmark con el nombre
 const brand = () => site.logo
-  ? `<img src="${esc(site.logo)}" alt="${esc(biz.name)}" height="40" style="height:40px;width:auto;display:block">`
+  ? `<img src="${esc(/^https?:/.test(site.logo) ? site.logo : import.meta.env.BASE_URL + site.logo.replace(/^\//, ''))}" alt="${esc(biz.name)}" height="40" style="height:40px;width:auto;display:block">`
   : esc(biz.name)
 
 const nav = [

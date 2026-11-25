@@ -48,6 +48,8 @@ function siteHead() {
 }
 
 export default defineConfig({
+  // Ruta base: '/' en local; en GitHub Pages la define el workflow (BASE_PATH=/nombre-del-repo/)
+  base: process.env.BASE_PATH || '/',
   plugins: [tailwindcss(), siteHead()],
   define: { __DEMO__: JSON.stringify(demo) },
   build: { sourcemap: false },
